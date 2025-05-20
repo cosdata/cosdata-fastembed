@@ -1,6 +1,12 @@
-# ⚡️ What is FastEmbed?
+# ⚡️ What is Cosdata-FastEmbed?
 
-FastEmbed is a lightweight, fast, Python library built for embedding generation. We [support popular text models](https://qdrant.github.io/fastembed/examples/Supported_Models/). Please [open a GitHub issue](https://github.com/qdrant/fastembed/issues/new) if you want us to add a new model.
+> **Notice: This is a maintained fork of Qdrant's [fastembed](https://github.com/qdrant/fastembed) library, now supported by [Cosdata](https://cosdata.ai/).**
+>
+> **cosdata-fastembed** will continue to evolve with planned improvements and integrations specific to Cosdata's ecosystem, while maintaining compatibility with the original fastembed project.
+>
+> **Credit:** Huge thanks to the Qdrant team for their foundational work on fastembed. This fork would not exist without their efforts.
+
+Cosdata-FastEmbed is a lightweight, fast Python library built for embedding generation. It supports a variety of popular text models. Please open a GitHub issue if you want us to add a new model or have feature requests.
 
 The default text embedding (`TextEmbedding`) model is Flag Embedding, presented in the [MTEB](https://huggingface.co/spaces/mteb/leaderboard) leaderboard. It supports "query" and "passage" prefixes for the input text. Here is an example for [Retrieval Embedding Generation](https://qdrant.github.io/fastembed/qdrant/Retrieval_with_FastEmbed/) and how to use [FastEmbed with Qdrant](https://qdrant.github.io/fastembed/qdrant/Usage_With_Qdrant/).
 
@@ -14,14 +20,14 @@ The default text embedding (`TextEmbedding`) model is Flag Embedding, presented 
 
 ## 🚀 Installation
 
-To install the FastEmbed library, pip works best. You can install it with or without GPU support:
+To install the Cosdata-FastEmbed library, pip works best. You can install it with or without GPU support:
 
 ```bash
-pip install fastembed
+pip install cosdata-fastembed
 
 # or with GPU support
 
-pip install fastembed-gpu
+pip install cosdata-fastembed-gpu
 ```
 
 ## 📖 Quickstart
@@ -229,53 +235,14 @@ print("The model BAAI/bge-small-en-v1.5 is ready to use on a GPU.")
 
 ```
 
-## Usage with Qdrant
+## Usage
 
-Installation with Qdrant Client in Python:
-
-```bash
-pip install qdrant-client[fastembed]
-```
-
-or 
+Cosdata-FastEmbed supports a variety of models for different tasks and modalities. The list of all the available models can be found [here](https://qdrant.github.io/fastembed/examples/Supported_Models/).
 
 ```bash
-pip install qdrant-client[fastembed-gpu]
-```
+pip install cosdata-fastembed
 
-You might have to use quotes ```pip install 'qdrant-client[fastembed]'``` on zsh.
+# or with GPU support
 
-```python
-from qdrant_client import QdrantClient
-
-# Initialize the client
-client = QdrantClient("localhost", port=6333) # For production
-# client = QdrantClient(":memory:") # For small experiments
-
-# Prepare your documents, metadata, and IDs
-docs = ["Qdrant has Langchain integrations", "Qdrant also has Llama Index integrations"]
-metadata = [
-    {"source": "Langchain-docs"},
-    {"source": "Llama-index-docs"},
-]
-ids = [42, 2]
-
-# If you want to change the model:
-# client.set_model("sentence-transformers/all-MiniLM-L6-v2")
-# List of supported models: https://qdrant.github.io/fastembed/examples/Supported_Models
-
-# Use the new add() instead of upsert()
-# This internally calls embed() of the configured embedding model
-client.add(
-    collection_name="demo_collection",
-    documents=docs,
-    metadata=metadata,
-    ids=ids
-)
-
-search_result = client.query(
-    collection_name="demo_collection",
-    query_text="This is a query document"
-)
-print(search_result)
+pip install cosdata-fastembed-gpu
 ```
