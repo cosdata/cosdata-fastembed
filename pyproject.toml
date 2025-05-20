@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cosdata-fastembed-gpu"
-version = "0.7.0"
+version = "0.7.1"
 description = "Fast, light, accurate library built for retrieval embedding generation"
 authors = ["Cosdata Team <support@cosdata.ai>"]
 license = "Apache License"
