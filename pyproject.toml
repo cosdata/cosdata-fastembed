@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "fastembed"
+name = "cosdata-fastembed"
 version = "0.7.0"
 description = "Fast, light, accurate library built for retrieval embedding generation"
-authors = ["Qdrant Team <info@qdrant.tech>", "NirantK <nirant.bits@gmail.com>"]
+authors = ["Cosdata Team <support@cosdata.ai>"]
 license = "Apache License"
 readme = "README.md"
 packages = [{include = "fastembed"}]
-homepage = "https://github.com/qdrant/fastembed"
-repository = "https://github.com/qdrant/fastembed"
-keywords = ["vector", "embedding", "neural", "search", "qdrant", "sentence-transformers"]
+homepage = "https://github.com/cosdata/cosdata-fastembed"
+repository = "https://github.com/cosdata/cosdata-fastembed"
+keywords = ["vector", "embedding", "neural", "search", "cosdata", "sentence-transformers"]
 
 [tool.poetry.dependencies]
 python = ">=3.9.0"
